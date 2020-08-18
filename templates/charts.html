@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yelp Data Analytics</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+        integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+        crossorigin="" />
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="yelp.html">Home</a>
+        <a href="about.html">About</a>
+        <button class="dropdown-btn">Visualizations
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="maps.html">Leaflet Base Map</a>
+            <a href="heatmap.html">Leaflet Density Map</a>
+            <a href="heatmaps.html">Leaflet Density Map With Ratings</a>
+            <a href="charts.html">D3 Chart</a>
+        </div>
+        <a href="/api">Data</a>
+    </div>
+    <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; Information</span>
+    <h1>
+        D3 Charts
+    </h1>
+    <p>This shows the relationship between Review Counts of the Restaurants and its Ratings.</p>
+   
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("mySidenav").style.color = "blue";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+
+        }
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } else {
+                    dropdownContent.style.display = "block";
+                }
+            });
+        }
+    </script>
+     <div class="col-md-5">
+        <div id="bar"></div>
+    </div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.1/d3.min.js"></script>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+        integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+        crossorigin=""></script>
+    <!-- API Key -->
+    <script type="text/javascript" src="../static/js/config.js"></script>
+    <!-- Our JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!--   <script type="text/javascript" src="../static/js/test.js"></script> 
+    <script type="text/javascript" src="../static/js/yelp.js"></script>  -->
+    <script type = "text/javascript" src="../static/js/app.js"></script>
+
+
+
+</body>
+
+</html>
